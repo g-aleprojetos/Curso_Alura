@@ -1,8 +1,9 @@
 ﻿using Alura.LeilaoOnline.Selenium.Fixtures;
+using Alura.LeilaoOnline.Selenium.PageObjects;
 using OpenQA.Selenium;
 using Xunit;
 
-namespace Alura.LeilaoOnline.Selenium.testes
+namespace Alura.LeilaoOnline.Selenium.Testes
 {
     [Collection("Chrome Driver")]
     public class AoEfetuarRegistro
@@ -13,86 +14,44 @@ namespace Alura.LeilaoOnline.Selenium.testes
         {
             driver = fixture.Driver;
         }
-        
-
 
         [Fact]
-        public void DadoInfoValidaDeveIrPaginaDeAgradecimento()
+        public void DadoInfoValidasDeveIrParaPaginaDeAgradecimento()
         {
-            //arrange - dado chrome aberto, pagina inicial do sistema de leilões, dados de rgistro válidos informados
-            driver.Navigate().GoToUrl("http://localhost:5000");
+            //arrange
+            var registroPO = new RegistroPO(driver);
+            registroPO.Visitar();
 
-            //nome
-            var inputNome = driver.FindElement(By.Id("Nome"));
+            registroPO.PreencheFormulario("Daniel Portugal", "daniel.portugal@caelum.com.br", "123", "123");
 
-            //email
-            var inputEmail = driver.FindElement(By.Id("Email"));
+            //act
+            registroPO.SubmeteFormulario();
 
-            //password
-            var inputPassword = driver.FindElement(By.Id("Password"));
-
-            //confpassword
-            var inputConfirmPassword = driver.FindElement(By.Id("ConfirmPassword"));
-
-            //botão de registro
-            var botaoRegistro = driver.FindElement(By.Id("btnRegistro"));
-
-
-            inputNome.SendKeys("Alexandre Gonçalves");
-            inputEmail.SendKeys("asg2012r@gmail.com");
-            inputPassword.SendKeys("1234");
-            inputConfirmPassword.SendKeys("1234");
-
-            //act - efetuo o registro
-            botaoRegistro.Click();
-
-
-            //assert - devo ser direcionado para pagina de agradecimento
+            //assert
             Assert.Contains("Obrigado", driver.PageSource);
 
         }
 
         [Theory]
-        [InlineData("","asg2012br@gmail.com","1234","1234")]
-        [InlineData("Alexandre","asg2012br","1234","1234")]
-        [InlineData("Alexandre","asg2012br@gmail.com","1234","4567")]
-        [InlineData("Alexandre","asg2012br@gmail.com","1234","")]
-  
-        public void DadoInfoInvalidaDeveFicarNaPaginaHome(
+        [InlineData("", "daniel.portugal@caelum.com.br", "123", "123")]
+        [InlineData("Daniel Portugal", "daniel", "123", "123")]
+        [InlineData("Daniel Portugal", "daniel.portugal@caelum.com.br", "123", "456")]
+        [InlineData("Daniel Portugal", "daniel.portugal@caelum.com.br", "123", "")]
+        public void DadoInfoinvalidasDeveContinuarNaHome(
             string nome,
             string email,
             string senha,
             string confirmSenha)
         {
-            //arrange - dado chrome aberto, pagina inicial do sistema de leilões, dados de rgistro válidos informados
-            driver.Navigate().GoToUrl("http://localhost:5000");
+            //arrange
+            var registroPO = new RegistroPO(driver);
+            registroPO.Visitar();
+            registroPO.PreencheFormulario(nome, email, senha, confirmSenha);
 
-            //nome
-            var inputNome = driver.FindElement(By.Id("Nome"));
+            //act
+            registroPO.SubmeteFormulario();
 
-            //email
-            var inputEmail = driver.FindElement(By.Id("Email"));
-
-            //password
-            var inputPassword = driver.FindElement(By.Id("Password"));
-
-            //confpassword
-            var inputConfirmPassword = driver.FindElement(By.Id("ConfirmPassword"));
-
-            //botão de registro
-            var botaoRegistro = driver.FindElement(By.Id("btnRegistro"));
-
-
-            inputNome.SendKeys(nome);
-            inputEmail.SendKeys(email);
-            inputPassword.SendKeys(senha);
-            inputConfirmPassword.SendKeys(confirmSenha);
-
-            //act - efetuo o registro
-            botaoRegistro.Click();
-
-
-            //assert - devo ser direcionado para pagina de agradecimento
+            //assert
             Assert.Contains("section-registro", driver.PageSource);
 
         }
@@ -101,42 +60,35 @@ namespace Alura.LeilaoOnline.Selenium.testes
         public void DadoNomeEmBrancoDeveMostrarMensagemDeErro()
         {
             //arrange
-            driver.Navigate().GoToUrl("http://localhost:5000");
+            var registroPO = new RegistroPO(driver);
+            registroPO.Visitar();
 
-            //botão de registro
-            var botaoRegistro = driver.FindElement(By.Id("btnRegistro"));
+            //act
+            registroPO.SubmeteFormulario();
 
-            //act 
-            botaoRegistro.Click();
-
-            //assert -span.msg-erro[data-valmsg-for=Name]
-            IWebElement elemento = driver.FindElement(By.CssSelector("span.msg-erro[data-valmsg-for=Nome]"));
-            Assert.Equal("The Nome field is required.",elemento.Text);
-
+            //assert - 
+            Assert.Equal("The Nome field is required.", registroPO.NomeMensagemErro);
         }
 
         [Fact]
         public void DadoEmailInvalidoDeveMostrarMensagemDeErro()
         {
             //arrange
-            driver.Navigate().GoToUrl("http://localhost:5000");
+            var registroPO = new RegistroPO(driver);
+            registroPO.Visitar();
 
-            //email
-            var inputEmail = driver.FindElement(By.Id("Email"));
-            inputEmail.SendKeys("asg2012");
+            registroPO.PreencheFormulario(
+                nome: "",
+                email: "daniel",
+                senha: "",
+                confirmSenha: ""
+             );
 
-            //botão de registro
-            var botaoRegistro = driver.FindElement(By.Id("btnRegistro"));
+            //act
+            registroPO.SubmeteFormulario();
 
-            //act 
-            botaoRegistro.Click();
-
-            //assert -span.msg-erro[data-valmsg-for=Name]
-            IWebElement elemento = driver.FindElement(By.CssSelector("span.msg-erro[data-valmsg-for=Email]"));
-            Assert.Equal("Please enter a valid email address.", elemento.Text);
-
+            //assert
+            Assert.Equal("Please enter a valid email address.", registroPO.EmailMensagemErro);
         }
-
     }
-    
 }
