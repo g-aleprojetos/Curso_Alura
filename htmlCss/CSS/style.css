@@ -1,10 +1,14 @@
 
 body{
-    background: #cccccc;
+    
 }
 
 #banner{
     width: 100%;
+}
+
+.principal {
+    background: #cccccc;
 }
 
 h1 {
@@ -27,3 +31,10 @@ em strong{
     font-style: italic;
 }
 
+.benificios {
+    background: #ffffff;
+}
+
+h2 {
+    text-align: center;
+}
