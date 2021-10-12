@@ -220,6 +220,10 @@ td, th {
     font-weight: bold;
 }
 
+.itens:before {
+    content: "★";
+}
+
 .imagem-beneficio {
     width: 60%;
 }
