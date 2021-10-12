@@ -226,6 +226,12 @@ td, th {
 
 .imagem-beneficio {
     width: 60%;
+    opacity: 1;
+    transition: 400ms;
+}
+
+.imagem-beneficio:hover {
+    opacity: 0.3;
 }
 
 .video {
