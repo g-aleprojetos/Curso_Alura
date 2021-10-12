@@ -94,11 +94,6 @@ footer{
     margin: 20px 0 0;
 }
 
-main{
-    width: 940px;
-    margin: 0 auto;
-}
-
 form {
     margin: 40px 0;
 }
@@ -163,6 +158,12 @@ td, th {
     margin: 0 0 1em;
     clear: left;
 }
+.principal {
+    padding: 3em 0;
+    background: #fefefe;
+    width: 940px;
+    margin: 0 auto;
+}
 
 .principal p {
     margin: 0 0 1em;
@@ -184,6 +185,11 @@ td, th {
 
 .mapa {
     padding: 3em 0;
+    background: linear-gradient(#fefefe, #888888);
+}
+.mapa-conteudo {
+    width: 940px;
+    margin: 0 auto;
 }
 
 .mapa p {
@@ -193,9 +199,10 @@ td, th {
 
 .benificios{
     padding: 3em 0;
+    background: #888888;
 }
 
-.conteudo-benificio {
+.conteudo-benificios {
     width: 640px;
     margin: auto;
 }
