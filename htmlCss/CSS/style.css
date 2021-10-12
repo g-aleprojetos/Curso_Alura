@@ -224,7 +224,7 @@ td, th {
     content: "★";
 }
 
-.imagem-beneficio {
+.imagem-beneficios {
     width: 60%;
     opacity: 1;
     transition: 400ms;
@@ -241,5 +241,21 @@ td, th {
 }
 
 @media screen and (max-width:480px){
-    
+    .caixa, .principal, .conteudo-benificios, .mapa-conteudo, .video {
+        width: auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        position: static;
+    }
+
+    .lista-benificios, .imagem-beneficios {
+        width: 100%;
+    }
+
+
 }
