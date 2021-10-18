@@ -1,8 +1,7 @@
 using Alura.LeilaoOnline.Selenium.Fixtures;
 using Alura.LeilaoOnline.Selenium.Helpers;
+using Alura.LeilaoOnline.Selenium.PageObjects;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
 using Xunit;
 
 namespace Alura.LeilaoOnline.Selenium.Testes
@@ -11,24 +10,33 @@ namespace Alura.LeilaoOnline.Selenium.Testes
     public class AoNavegarParaHome
     {
         private IWebDriver driver;
+        private Home home;
+        
 
         //Setup
         public AoNavegarParaHome(TestFixture fixture)
         {
             driver = fixture.Driver;
+            
         }
 
         [Fact]
         public void DadoChromeAbertoDeveMostrarLeiloesNoTitulo()
         {
-            //arrange
+            home.HomePage();
 
-            //act
-            driver.Navigate().GoToUrl("http://localhost:5000");
+        
+            
 
             //assert
             Assert.Contains("Leilões", driver.Title);
         }
+
+
+
+
+
+
 
         [Fact]
         public void DadoChromeAbertoDeveMostrarProximosLeiloesNaPagina()
