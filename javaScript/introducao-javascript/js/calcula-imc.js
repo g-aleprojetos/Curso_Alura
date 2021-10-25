@@ -38,7 +38,7 @@ for (var i = 0; i < pacientes.length; i++) {
 
     }
 
-    if (validacaoIMC) {
+    if (pesoEhValido && alturaEhValido) {
         var arr = calculaImc(peso, altura);
         imc.textContent = arr;
     }
@@ -53,7 +53,7 @@ function validaPeso(peso) {
 }
 
 function validaAltura(altura) {
-    if (altura >= 0 && peso < 3.0) {
+    if (altura >= 0 && altura < 3.0) {
         return true;
     } else {
         return false;
