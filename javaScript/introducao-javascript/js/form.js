@@ -6,9 +6,6 @@ botaoAdicionar.addEventListener("click", function (event) {
     //Extraindo informações do paciente do form
     var paciente = obtemPacienteDoFormulario(form);
 
-    //cria a tr a td do paciente
-    var pacienteTr = montarTr(paciente);
-
     var erros = validaPaciente(paciente);
     console.log(erros);
     if (erros.length > 0) {
@@ -16,10 +13,7 @@ botaoAdicionar.addEventListener("click", function (event) {
         return;
     }
 
-    //adicionando o paciente na tabela
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(pacienteTr);
+    adicionaPacienteNaTabela(paciente);
 
     form.reset();
     var mensagensErro = document.querySelector("#mensagens-erro");
@@ -63,7 +57,7 @@ function montaTd(dado, classe) {
 function validaPaciente(paciente) {
 
     var erros = [];
-    
+
     if (!validaPeso(paciente.peso)) erros.push("O peso é invalido!");
     if (!validaPeso(paciente.altura)) erros.push("A altura é invalido!");
     if (paciente.nome.length == 0) erros.push("O nome não pode ser em branco!");
@@ -72,6 +66,14 @@ function validaPaciente(paciente) {
     if (paciente.altura.length == 0) erros.push("A altura não pode ser em branco!");
 
     return erros;
+}
+
+function adicionaPacienteNaTabela(paciente) {
+    //cria a tr a td do paciente
+    var pacienteTr = montarTr(paciente);
+    //adicionando o paciente na tabela
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
 }
 
 function exibeMensagensDeErro(erros) {
