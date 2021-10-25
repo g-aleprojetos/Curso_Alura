@@ -4,19 +4,17 @@ campoFiltro.addEventListener("input", function () {
     var pacientes = document.querySelectorAll(".paciente");
 
     if (campoFiltro.value.length > 0) {
-        console.log("entrou");
         pacientes.forEach(function (paciente) {
             var tdNome = paciente.querySelector(".info-nome");
             var nome = tdNome.textContent;
-              if (nome != campoFiltro.value) {
+            var expressao = new RegExp(campoFiltro.value, "i");
+              if (!expressao.test(nome)) {
                 paciente.classList.add("invisivel");
             } else {
                 paciente.classList.remove("invisivel");
             }
         });
     } else {
-        console.log("saiu");
-
         pacientes.forEach(function(paciente) {
             paciente.classList.remove("invisivel");
         });
