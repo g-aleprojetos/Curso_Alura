@@ -38,7 +38,7 @@ header .container {
   position: relative;
 }
 
-.menu-opcoes {
+.menu-principal {
   position: absolute;
   right: 0;
   top: -.5em;
@@ -46,21 +46,21 @@ header .container {
   font-weight: lighter;
 }
 
-.menu-opcoes ul {
+.menu-principal ul {
   padding-left: 0;
 }
 
-.menu-opcoes li {
+.menu-principal li {
   display: inline-block;
   width: 5em;
 }
 
-.menu-opcoes a {
+.menu-principal a {
   color: white;
   text-decoration: none;
 }
 
-.menu-opcoes a:hover {
+.menu-principal a:hover {
   text-decoration: underline;
 }
 
