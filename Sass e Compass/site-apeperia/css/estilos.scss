@@ -1,4 +1,18 @@
+// Variáveis usdas no meu Sass 
 $cor-padrao: #c24e4b;
+$cor-auxiliar: #1e2c35;
+$cor-branca: #fff;
+
+// Mixins usados no meu Sass 
+@mixin borda-arredondada($raio: 0.3em) {
+  -webkit-border-radius: $raio;
+  border-radius: $raio;
+}
+
+@mixin sombra-padrão {
+  -webkit-box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+}
 
 /** Geral **/
 body {
@@ -97,9 +111,8 @@ header .container {
   border: 0;
   padding: .6em;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  @include borda-arredondada(50px);
+  @include sombra-padrão;
   font-weight: bold;
 }
 
@@ -161,11 +174,11 @@ header .container {
 
 /** Planos **/
 .planos {
-  background: #1e2c35;
+  background: $cor-auxiliar;
 }
 
 .planos h2 {
-  color: #fff;
+  color: $cor-branca;
 }
 
 .plano {
@@ -181,7 +194,7 @@ header .container {
 }
 
 .plano h3 {
-  color: #fff;
+  color: $cor-branca;
   font-size: 1.8em;
   background: $cor-padrao;
   text-align: center;
@@ -219,13 +232,12 @@ header .container {
 .plano button {
   background: $cor-padrao;
   border: 0;
-  color: #fff;
+  color: $cor-branca;
   width: 210px;
   height: 38px;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  @include borda-arredondada();
+  @include sombra-padrão;
   margin-left: 2em;
 }
 
@@ -308,8 +320,7 @@ textarea {
   width: 100%;
   margin-bottom: .8em;
   padding: 4px 8px;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
+  @include borda-arredondada();
   border: 2px solid #ccc;
 }
 
@@ -317,13 +328,12 @@ textarea {
   margin: 0 auto;
   background: $cor-padrao;
   border: 0;
-  color: #fff;
+  color: $cor-branca;
   width: 210px;
   height: 38px;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  @include borda-arredondada();
+  @include sombra-padrão;
 }
 
 /** Footer **/
@@ -346,7 +356,7 @@ footer::after {
 
 footer::before {
   content: "";
-  background: #1e2c35;
+  background: $cor-auxiliar;
   top: 0;
   left: 0;
   bottom: 0;
@@ -391,7 +401,7 @@ footer .container img {
 }
 
 footer a {
-  color: #fff;
+  color: $cor-branca;
   text-decoration: none;
 }
 
