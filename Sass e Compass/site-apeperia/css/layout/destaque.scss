@@ -7,7 +7,7 @@
   height: 330px;
   padding-top: 10em;
 
-  @media (max-width: $ponto-de-quebra) {
+  @media #{$mq-mobile} {
     font-size: 14px;
     height: 250px;
   }

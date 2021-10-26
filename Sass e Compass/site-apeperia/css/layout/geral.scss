@@ -6,7 +6,7 @@ body {
 .container {
   width: 940px;
   margin: 0 auto;
-  @media (max-width: $ponto-de-quebra) {
+  @media #{$mq-mobile} {
     .container {
       width: 90%;
     }
