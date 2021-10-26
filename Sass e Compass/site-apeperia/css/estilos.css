@@ -1,3 +1,8 @@
+.sprite-sprite {
+  background-image: url('/imagens/sprite-s1e1f3a7a9e.png');
+  background-repeat: no-repeat;
+}
+
 .plataformas li, .social li a {
   text-indent: -9999px;
   overflow: hidden;
@@ -539,6 +544,7 @@ header .container {
   border: 0;
   padding: 0.6em;
   font-size: 1.2em;
+  -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
   -moz-box-shadow: black 0 2px 10px;
@@ -660,8 +666,9 @@ header .container {
   width: 210px;
   height: 38px;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
   -moz-box-shadow: black 0 2px 10px;
   -webkit-box-shadow: black 0 2px 10px;
   box-shadow: black 0 2px 10px;
@@ -756,8 +763,9 @@ textarea {
   width: 100%;
   margin-bottom: 0.8em;
   padding: 4px 8px;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
   border: 2px solid #ccc;
 }
 
@@ -769,8 +777,9 @@ textarea {
   width: 210px;
   height: 38px;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
   -moz-box-shadow: black 0 2px 10px;
   -webkit-box-shadow: black 0 2px 10px;
   box-shadow: black 0 2px 10px;
