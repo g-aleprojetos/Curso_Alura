@@ -1,5 +1,5 @@
 .sprite-sprite, .sprite-icone-ok, .sprite-icone-x {
-  background-image: url('/imagens/sprite-s1e035a9ecf.png');
+  background-image: url('../imagens/sprite-s1e035a9ecf.png');
   background-repeat: no-repeat;
 }
 
@@ -632,7 +632,7 @@ header .container {
   background: #c24e4b;
   text-align: center;
   height: 2em;
-  padding-top: .6em;
+  padding-top: 0.6em;
   margin-top: 0;
 }
 
@@ -649,7 +649,7 @@ header .container {
   font-size: 1em;
   list-style: none;
   border-bottom: 1px solid #acacac;
-  padding: .5em;
+  padding: 0.5em;
   width: 14.8em;
 }
 .itens-plano li:last-child {
@@ -683,17 +683,10 @@ header .container {
   background-position: 0 -23px;
 }
 
-.icone-check, .icone-x {
+.sprite-icone-x,
+.sprite-icone-ok {
   width: 18px;
   height: 18px;
-}
-
-.icone-check {
-  background-position: -5px -5px;
-}
-
-.icone-x {
-  background-position: -33px -5px;
 }
 
 /** Blog **/
