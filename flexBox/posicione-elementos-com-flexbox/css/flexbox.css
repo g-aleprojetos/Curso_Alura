@@ -2,9 +2,31 @@
 .cabecalhoPrincipal .container{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;/*coloca o espaço entre os objetos*/
 }
 
 .cabecalhoPrincipal-nav{
+    display: flex;
+}
+
+.rodapePrincipal-patrocinadores .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;/*coloca o espaço entre os objetos*/
+    width: 70%;
+    margin-right: 5%;
+
+}
+
+.rodapePrincipal-contatoForm{
+    width: 25%;
+}
+
+.rodapePrincipal-contatoForm-fieldset{
     display: flex;
 }
