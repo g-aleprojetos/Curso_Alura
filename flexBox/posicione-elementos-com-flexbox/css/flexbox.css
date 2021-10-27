@@ -15,10 +15,17 @@
 }
 
 .conteudoPrincipal-cursos-link{
-    width: 20%;
+    width: 23%;
+    margin: 1%;
 }
 
+.conteudoPrincipal-cursos-link:nth-child(4n) {/*retira a margem da direita dos umtimos elementos da direita*/
+    margin-right: 0;
+}
 
+.conteudoPrincipal-cursos-link:nth-child(4n+1) {/*retira a margem da esquerda dos umtimos elementos da esquerda*/
+    margin-left: 0;
+}
 
 
 
