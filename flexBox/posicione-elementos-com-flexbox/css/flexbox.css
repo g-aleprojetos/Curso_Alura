@@ -2,7 +2,7 @@
 .cabecalhoPrincipal .container{
     display: flex;
     align-items: center;
-    justify-content: space-between;/*coloca o espaço entre os objetos*/
+    justify-content: space-between;/*coloca o espaço ao redor de cada objetos*/
 }
 
 .cabecalhoPrincipal-nav{
@@ -29,4 +29,12 @@
 
 .rodapePrincipal-contatoForm-fieldset{
     display: flex;
+}
+
+.rodapePrincipal-navMap-list{
+    display: flex;
+    /*flex-direction: column;
+    flex-wrap: wrap;/*quebra para próxima coluna*/
+    flex-flow: column wrap;/*Faze a mesma coisas que as duas linha de cima*/
+    height: 250px;/*tamanho da altura da coluna*/
 }
