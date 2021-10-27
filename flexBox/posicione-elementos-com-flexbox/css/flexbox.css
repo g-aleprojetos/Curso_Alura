@@ -2,9 +2,39 @@
 .cabecalhoPrincipal .container{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;/*coloca o espaço ao redor de cada objetos*/
 }
 
 .cabecalhoPrincipal-nav{
     display: flex;
+}
+
+.rodapePrincipal-patrocinadores .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;/*coloca o espaço entre os objetos*/
+    width: 70%;
+    margin-right: 5%;
+
+}
+
+.rodapePrincipal-contatoForm{
+    width: 25%;
+}
+
+.rodapePrincipal-contatoForm-fieldset{
+    display: flex;
+}
+
+.rodapePrincipal-navMap-list{
+    display: flex;
+    /*flex-direction: column;
+    flex-wrap: wrap;/*quebra para próxima coluna*/
+    flex-flow: column wrap;/*Faze a mesma coisas que as duas linha de cima*/
+    height: 250px;/*tamanho da altura da coluna*/
 }
