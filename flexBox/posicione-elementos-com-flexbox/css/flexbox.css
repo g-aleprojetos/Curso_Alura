@@ -71,6 +71,10 @@
         text-align: center;
     }
 
+    .cabecalhoPrincipal-nav-link-app{
+        order: -1;
+    }
+
     .conteudoPrincipal-cursos {
         flex-direction: column;
     }
