@@ -24,3 +24,13 @@ font-family: 'Pacifico', cursive;
 .borda-cor-especial{
   border-color: darkred;
 }
+
+.card-posicao-imagem{
+  object-fit: cover;
+  height: 14rem;
+}
+
+.card-largura{
+  max-width: 18rem;
+}
+
