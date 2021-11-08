@@ -19,15 +19,23 @@ export class Conta {
     return this._saldo;
   }
 
-  sacar(valor) {
-
-    let taxa = 1
+  _sacar(valor, taxa){
     const valorSacado = taxa * valor;
     if (this._saldo >= valorSacado) {
-      this._saldo -= valorSacado;
-      return valorSacado;
+        this._saldo -= valorSacado;
+        return valorSacado;
     }
-  }
+
+    return 0;
+}
+
+  _sacar(valor, taxa){
+    const valorSacado = taxa * valor;
+    if (this._saldo >= valorSacado) {
+        this._saldo -= valorSacado;
+        return valorSacado;
+    }
+}
 
   depositar(valor) {
     this._saldo += valor;
