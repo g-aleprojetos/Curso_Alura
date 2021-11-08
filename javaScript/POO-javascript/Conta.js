@@ -3,6 +3,9 @@ export class Conta {
     this._saldo = saldoInicial;
     this._cliente = cliente;
     this._agencia = agencia;
+    if(this.constructor == Conta) {
+      console.log("Você não deveria intanciar um objeto do tipo conta.");
+    }
   }
 
   set cliente(novoValor) {
@@ -15,36 +18,31 @@ export class Conta {
     return this._cliente;
   }
 
-  get _saldo() {
+  get saldo() {
     return this._saldo;
   }
 
-  _sacar(valor, taxa){
+  sacar(valor) {
+    let taxa = 1
+    return this._sacar(valor, taxa);
+  }
+
+  _sacar(valor, taxa) {
     const valorSacado = taxa * valor;
     if (this._saldo >= valorSacado) {
-        this._saldo -= valorSacado;
-        return valorSacado;
+      this._saldo -= valorSacado;
+      return valorSacado;
     }
 
     return 0;
-}
-
-  _sacar(valor, taxa){
-    const valorSacado = taxa * valor;
-    if (this._saldo >= valorSacado) {
-        this._saldo -= valorSacado;
-        return valorSacado;
-    }
-}
+  }
 
   depositar(valor) {
     this._saldo += valor;
   }
 
   tranferir(valor, conta) {
-
     const valorSacado = this.sacar(valor);
     conta.depositar(valorSacado);
-
   }
 }
