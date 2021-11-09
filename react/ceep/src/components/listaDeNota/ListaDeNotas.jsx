@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CardNota from "../cardNota";
 import "./style.css"
 
-export class ListaDeNotas extends Component {
+class ListaDeNotas extends Component {
 
   render() {
     return (
