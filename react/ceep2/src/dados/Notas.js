@@ -1,6 +1,8 @@
 export default class ArrayNotas {
   constructor() {
     this.notas = [];
+    this.categorias = [];
+    this._inscritos = [];
   }
 
   adicionarNota(titulo, texto, categoria) {
@@ -10,6 +12,16 @@ export default class ArrayNotas {
 
   apagarNota(indice){
     this.notas.splice(indice,1);
+  }
+
+  inscrever(func) {
+    this._inscritos.push(func);
+  }
+
+  notificar() {
+    this._inscritos.forEach(func => {
+      func(this.categorias);
+    });
   }
 }
 
