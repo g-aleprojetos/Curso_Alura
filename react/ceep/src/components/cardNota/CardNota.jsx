@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./style.css"
 
-class CardNota extends React.Component {
+class CardNota extends Component {
   render() {
     return (
       <section className="card-nota">

@@ -9,7 +9,8 @@ class FormularioCadastro extends Component {
   }
 
   handlerMudancaTitulo(evento){
-    this.titulo = evento.target.value
+    this.titulo = evento.target.value;
+    console.log(this.titulo);
   }
 
   render() {
@@ -19,7 +20,7 @@ class FormularioCadastro extends Component {
         type="text" 
         placeholder="titulo" 
         className="form-cadastro_input"
-        onChange={this.handlerMudancaTitulo}
+        onChange={this.handlerMudancaTitulo.bind(this)}
         />
         <textarea 
         rows={15}
