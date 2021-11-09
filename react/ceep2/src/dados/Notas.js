@@ -11,8 +11,8 @@ export default class ArrayNotas {
     this.notificar();
   }
 
-  apagarNota(indice){
-    this.notas.splice(indice,1);
+  apagarNota(indice) {
+    this.notas.splice(indice, 1);
     this.notificar();
   }
 
@@ -20,15 +20,19 @@ export default class ArrayNotas {
     this._inscritos.push(func);
   }
 
+  desinscrever(func) {
+    this._inscritos = this._inscritos.filter((f) => f !== func);
+  }
+
   notificar() {
-    this._inscritos.forEach(func => {
+    this._inscritos.forEach((func) => {
       func(this.notas);
     });
   }
 }
 
-class Nota{
-  constructor(titulo, texto, categoria){
+class Nota {
+  constructor(titulo, texto, categoria) {
     this.titulo = titulo;
     this.texto = texto;
     this.categoria = categoria;
