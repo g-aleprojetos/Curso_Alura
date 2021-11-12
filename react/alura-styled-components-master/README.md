@@ -282,5 +282,199 @@ mudado nos botões
 
 ```
 
+## Refatoração
 
+Ir no index.jsx da pasta container
 
+importar o styled components e montar dois componentes o container e o conteudo adquirindo a estilização do arquivo do css
+
+```
+import styled from "styled-components";
+
+const Container = styled.div`
+background-color: #f1f1f1;
+min-height: 90vh;
+padding: 0px 15vw;
+`
+const Conteudo = styled.section`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+`
+```
+## Tranforma a função principal em default para ficar com apenas um Container
+
+## de
+```
+const Container = () => {
+  return (
+      ...
+  );
+};
+export default Container;
+```
+
+## para 
+
+```
+export default() => {
+  return (
+      ...
+  );
+};
+```
+
+### Agora refatora a aplicação
+
+```
+<Container>
+  <Titulo>Olá Fulano!</Titulo>
+  <Conteudo>
+    <Conta />
+  </Conteudo>
+</Container>
+```
+refatorar os icones
+
+criar um arquino na pasta UI chamado index.js
+
+importar a styled components e jpa estilizar o imagem-icone adquirindo o codigo do css
+
+```
+import styled from "styled-components";
+
+export const Icone = styled.img`
+height: 25px;
+width: 25px;
+`;
+```
+
+abrir a pesquisa usando o atalho ```ctrl + shift + f ```
+e buscar no código os lugares que usar o ```.imagem-icone```
+
+Foi encontrado dois lugares no index.jsx da pasta Conta
+
+importar o Icone
+```
+import {Icone} from "../../Components/UI/index"
+```
+
+Substituir onde tem o a classe image-icone por Icone
+
+## Herança
+
+No index.jsx tem um botão que é o unico que tem margem
+
+Então vamos herdar a configuração e colocar apenas a margem.
+
+importa o styled components
+
+```
+import styled from "styled-components";
+```
+monta o componente herdando a configuração do Icone
+
+```
+const IconeMargin = styled(Icone)`
+margin-top: 2px;
+`
+```
+
+Agora retira o margem do codigo e troca de Icone para IconeMargin
+
+estilizando o box, bnt, detalhe, saldo e botao colocando junto no arquivo index.jsx do UI 
+monta todas as estiliação
+
+```
+export const Box = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background-color: white;
+border-radius: 5px;
+box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.04);
+padding: 20px;
+width: 48%;
+`
+
+export const Botao = styled.button`
+margin: 15px auto 0px auto;
+display: block;
+border-radius: 20px;
+background-color: #41d3be;
+border: none;
+color: white;
+font-weight: 600;
+font-size: 14px;
+padding: 8px 20px;
+cursor: pointer;
+`
+
+export const Detalhe = styled.span`
+color: #41d3be;
+font-size: 24px;
+`
+
+export const Saldo = styled.div`
+font-weight: 700;
+font-size: 32px;
+`
+```
+importa a styled components
+
+```
+import {Icone, Box, Detalhe, Saldo, Botao} from "../../Components/UI/index"
+```
+
+Troca os ClassName
+
+## Media Query
+
+Retira o media query do css
+
+```
+@media (max-width: 800px) {
+  .box {
+    width: 95%;
+    margin: 5px;
+  }
+  .conteudo {
+    flex-direction: column;
+  }
+}
+
+```
+Retire o que é do .box junto com a estrutura do media query e coloca no Box que foi montado no index.jsx da pasta UI
+
+```
+export const Box = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background-color: white;
+border-radius: 5px;
+box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.04);
+padding: 20px;
+width: 48%;
+
+@media (max-width: 800px) {
+      width: 95%;
+    margin: 5px;
+  }
+`
+```
+
+Retire o que é do .conteudo junto com a estrutura do media query e coloca no Conteudo que foi montado no index.jsx da pasta Container
+
+```
+const Conteudo = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+```
