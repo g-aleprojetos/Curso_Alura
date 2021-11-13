@@ -1,5 +1,15 @@
 # ***Descrição da aula***
 
+para poder trabalhar com o css do styled components é só abaixar a biblioteca no vsCode
+```
+Nome: vscode-styled-components
+ID: jpoissonnier.vscode-styled-components
+Descrição: Syntax highlighting for styled-components
+Versão: 1.6.6
+Editor: Julien Poissonnier
+Link do Marketplace do VS: https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components
+```
+
 <br />
 
 ### Abaixar projeto &nbsp;
@@ -476,5 +486,86 @@ const Conteudo = styled.section`
     flex-direction: column;
   }
 `;
+```
 
+## Extrato
+
+Cria uma nova pasta com nome de Extrato na pasta Components e dentro dela um arquivo index.jsx
+
+monta extrutura básica do index
+
+```
+import React from 'react';
+import { Box } from '../UI';
+
+const Extrato = ()=>{
+  return(
+
+  )
+}
+
+export default Extrato
+```
+
+importar a o conteudo da pasta do info.js que contem os dados para o estrato
+
+```
+import {extratoLista} from '../../info'
+```
+
+fazer map para verificar o conteúdo do objeto
+
+```
+const Extrato = () => {
+  return (
+    <Box>
+      {extratoLista.updates.map(({id, type, from, value, date}) => {
+        return (
+          <div key={id}>
+            <div>{type}</div>
+            <div>{from}</div>
+          </div>
+        );
+      })}
+    </Box>
+  );
+};
+```
+
+incluindo um botao
+Acrescentar o Botão no import do Box
+```
+import { Box, Botao } from "../UI";
+```
+acrescenta op botão no final do Box
+
+```
+      ...
+      <Botao>Ver Mais</Botao>
+    </Box>
+```
+
+Incluindo itens
+
+cria uma nova pasta Itens e index.jsx nele
+
+montar a pagina de Itens
+```
+import React from 'react';
+import styled from 'styled-components';
+
+const Item = styled.div`
+box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.1);
+border-radius:10px;
+margin: 2px 0;
+display: flex;
+align-items: center;
+justify-content: space-around;
+padding: 10px;
+font-size: 12px;
+`;
+
+export default()=>{
+  return<Item></Item>
+}
 ```
