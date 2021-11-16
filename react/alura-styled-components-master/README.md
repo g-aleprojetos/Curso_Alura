@@ -569,3 +569,216 @@ export default()=>{
   return<Item></Item>
 }
 ```
+
+## Implementação do tema escuro
+
+acrescentar as novas variaveis de cores no variaveis.js
+
+´´´
+export const conteudoClaro = "white";
+
+export const fundoEsculro= "#5c5b5e";
+export const conteudoEscuro = "#5c5b5e";
+export const textoFundoEscyro = "fafafa";
+´´´
+
+criar o arquivo temas.js na pasta UI
+
+importa as cores nesse arquivo
+
+```
+import {
+  fundoClaro,
+  conteudoClaro,
+  textoFundoClaro,
+  fundoEscuro,
+  conteudoEscuro,
+  textoFundoEscyro,
+} from "./variaveis";
+```
+
+Crias os dois objetos
+
+```
+export const temaClaro = {
+  body: fundoClaro,
+  inside: conteudoClaro,
+  text: textoFundoClaro,
+};
+
+export const temaEscuro = {
+  body: fundoEscuro,
+  inside: conteudoEscuro,
+  text: textoFundoEscuro,
+};
+```
+
+No arquivo App.js importar o ThemeProvider do styled-components e os temas
+
+```
+import {ThemeProvider} from 'styled-components'
+import {temaClaro, temaEscuro} from './Components/UI/temas'
+```
+
+retira a marcação <> </> e acrescenta ThemeProvider
+
+```
+    <ThemeProvider theme={temaEscuro}>
+      <GlobalStyle />
+      <Cabecalho />
+      <Container />
+    </ThemeProvider>
+```
+substituir os cores fixas pela variavel
+
+index do container
+
+```
+  background-color: #f1f1f1;
+```
+por
+
+```
+  background-color: ${({theme}) => theme.body};
+```
+
+index do UI
+
+```
+background-color: white;
+```
+por
+```
+background-color: ${({theme}) => theme.inside};
+```
+
+globalStyle.js
+
+```
+color: grey;
+```
+por
+```
+color: ${({theme}) => theme.text};
+```
+
+Acrescentar botão para mudança do tema
+
+criar arquivo no Components com nome SwitcherTema/index.jsx
+
+no arquivo criado importar os objetos
+
+```
+import React from 'react';
+import ThemeOn from '../../assets/images/themeOn.svg'
+import ThemeOff from '../../assets/images/themeOff.svg'
+import { Icone } from '../UI';
+```
+
+criar os icones
+```
+const claro = <Icone src={ThemeOn} alt= "Tema Claro"/>
+const escuro = <Icone src={ThemeOff} alt= "Tema Escuro"/>
+```
+
+criar a função de mudança de tema
+```
+export default (({tema}) => (tema ? escuro : claro));
+```
+
+implementar a função de troca de tema no App.js
+
+importar os objetos
+
+```
+import React, { useState } from "react";
+
+import { BtnTema } from "./Components/UI"; 
+import SwitcherTema from "./Components/SwitcherTema";
+```
+criar a função de mudança do tema no começo da function App() 
+
+```
+  const [tema, setTema] = useState(true);
+
+  const toggleTema = () => {
+    setTema((tema) => !tema);
+  };
+```
+
+mudança do tema
+
+```
+    <ThemeProvider theme={tema ? temaClaro : temaEscuro}>
+      <GlobalStyle />
+      <BtnTema onClick={toggleTema}>
+        <SwitcherTema tema={tema}/>
+      </BtnTema>
+```
+
+mudando a cor do icone
+
+no arquivo tema.js acrescentar o filter tanto no tema claro como no escuro
+
+tema claro
+```
+filter: "",
+```
+
+tema escuro
+
+```
+filter: "invert(100%)",
+```
+
+No index.js da pasta UI acrescentar a mudança do icone depois da função Icone
+
+```
+export const IconeTema = styled(Icone)`
+filter: ${({theme}) => theme.filter};
+`
+```
+implementar a troca
+
+conta/index.jsx
+
+importar IconeTema
+```
+import {Icone, Box, Detalhe, Saldo, Botao, IconeTema} from "../../Components/UI/index"
+```
+substituir
+```
+<Icone src={dinheiro} alt="Ícone Saldo" />
+```
+por
+```
+<IconeTema src={dinheiro} alt="Ícone Saldo" />
+```
+
+e no imageFilter da pasta UI
+
+trocar 
+```
+import { Icone } from "../Components/UI";
+
+ const Images = {
+    Restaurante: <Icone src={alimentacao} alt="Restaurante" />,
+    Utilidades: <Icone src={utilidades} alt="Utilidades" />,
+    Saude: <Icone src={saude} alt="Saude" />,
+    Transporte: <Icone src={transporte} alt="Saude" />,
+    default: <Icone src={outros} alt="Outros" />,
+  };
+```
+por 
+
+```
+import { IconeTema } from "../Components/UI";
+
+  const Images = {
+    Restaurante: <IconeTema src={alimentacao} alt="Restaurante" />,
+    Utilidades: <IconeTema src={utilidades} alt="Utilidades" />,
+    Saude: <IconeTema src={saude} alt="Saude" />,
+    Transporte: <IconeTema src={transporte} alt="Saude" />,
+    default: <IconeTema src={outros} alt="Outros" />,
+  };
+```
