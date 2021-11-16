@@ -124,14 +124,14 @@ import { GlobalStyle } from "./Components/GlobalStyle";
       <Container />
     </>
 ```
-importar fonts
+### Importar fonts
 
-retira a fonte do css
+### Retira a fonte do css
 
 ```
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
 ```
-e coloca no index.html da pasta public e colocar  a fonte 
+### Colocar no index.html da pasta public e colocar  a fonte 
 
 ```
  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap">
@@ -147,12 +147,12 @@ export const fundoClaro = "#f1f1f1";
 export const textoFundoClaro = "grey"
 ```
 
-estilizando a pagina
+### Estilizando a pagina
 
-Cabeçalho 
-antes
+### Cabeçalho 
+### Antes
 
-css
+### css
 ```
 .cabecalho {
   background-color: #41d3be;
@@ -163,7 +163,7 @@ css
   align-items: center;
 }
 ```
-index.jsx
+### index.jsx
 
 ```
 <div className="cabecalho">
@@ -171,15 +171,15 @@ index.jsx
 </div>
 
 ```
-depois
-Importa a styled components
+### Depois
+### Importa a styled components
 
 ```
 import styled from "styled-components";
 ```
-css é apagado
+### css é apagado
 
-index.jsx 
+### index.jsx 
 ```
 const StyleHeader = styled.nav`
 background-color: #41d3be;
@@ -190,7 +190,7 @@ height: 10vh;
 align-items: center;
 `
 ```
-subistitui a div 
+### Subistitui a div 
 
 ```
 <StyleHeader>
@@ -198,34 +198,34 @@ subistitui a div
 </StyleHeader>
 ```
 
-incluir a variavel
+### Incluir a variavel
 
-importar a biblioteca
+### Importar a biblioteca
 
 ```
 import { corPrimaria } from "../UI/variaveis";
 ```
- substituir a linha backgroud-color do StyleHeader 
+ ### substituir a linha backgroud-color do StyleHeader 
 
  ```
  background-color: #41d3be;
  ```
 
- por 
+ ### por 
 
  ```
  background-color: ${corPrimaria};
  ```
 
- Fazer isso para o componente imagem
+ ### Fazer isso para o componente imagem
 
  ## Usando Props
 
-Uso nos Botões
+### Uso nos Botões
 
-Como era antes
+### Como era antes
 
-css
+### css
 ```
 .btn-primario {
   text-align: center;
@@ -251,7 +251,7 @@ css
   color: #41d3be;
 }
 ```
-index.jsx
+### index.jsx
 
 ```
 <div>
@@ -263,12 +263,12 @@ index.jsx
   </a>
 </div>
 ```
-Como ficou depois
+### Como ficou depois
 
-As estilização dos botões no css foi apagado
+### As estilização dos botões no css foi apagado
 
-index.jsx
-foi acrecentado 
+### index.jsx
+### Foi acrecentado 
 ```
 const BtnCabecalho = styled.a`
 text-align: center;
@@ -283,7 +283,7 @@ color: ${(props) => (props.primary ? corPrimaria : "white")};
 `
 ```
 
-mudado nos botões
+### Mudado nos botões
 ```
  <div>
    <BtnCabecalho primary href="https://google.com">Ajuda</BtnCabecalho>
@@ -294,9 +294,9 @@ mudado nos botões
 
 ## Refatoração
 
-Ir no index.jsx da pasta container
+### Ir no index.jsx da pasta container
 
-importar o styled components e montar dois componentes o container e o conteudo adquirindo a estilização do arquivo do css
+### Importar o styled components e montar dois componentes o container e o conteudo adquirindo a estilização do arquivo do css
 
 ```
 import styled from "styled-components";
@@ -344,11 +344,11 @@ export default() => {
   </Conteudo>
 </Container>
 ```
-refatorar os icones
+### Refatorar os icones
 
-criar um arquino na pasta UI chamado index.js
+### Criar um arquino na pasta UI chamado index.js
 
-importar a styled components e jpa estilizar o imagem-icone adquirindo o codigo do css
+### Importar a styled components e jpa estilizar o imagem-icone adquirindo o codigo do css
 
 ```
 import styled from "styled-components";
@@ -359,30 +359,30 @@ width: 25px;
 `;
 ```
 
-abrir a pesquisa usando o atalho ```ctrl + shift + f ```
-e buscar no código os lugares que usar o ```.imagem-icone```
+### Abrir a pesquisa usando o atalho ```ctrl + shift + f ```
+### e buscar no código os lugares que usar o ```.imagem-icone```
 
-Foi encontrado dois lugares no index.jsx da pasta Conta
+### Foi encontrado dois lugares no index.jsx da pasta Conta
 
 importar o Icone
 ```
 import {Icone} from "../../Components/UI/index"
 ```
 
-Substituir onde tem o a classe image-icone por Icone
+### Substituir onde tem o a classe image-icone por Icone
 
 ## Herança
 
-No index.jsx tem um botão que é o unico que tem margem
+### No index.jsx tem um botão que é o unico que tem margem
 
-Então vamos herdar a configuração e colocar apenas a margem.
+### Então vamos herdar a configuração e colocar apenas a margem.
 
-importa o styled components
+### Importa o styled components
 
 ```
 import styled from "styled-components";
 ```
-monta o componente herdando a configuração do Icone
+### Monta o componente herdando a configuração do Icone
 
 ```
 const IconeMargin = styled(Icone)`
@@ -390,9 +390,9 @@ margin-top: 2px;
 `
 ```
 
-Agora retira o margem do codigo e troca de Icone para IconeMargin
+### Agora retira o margem do codigo e troca de Icone para IconeMargin
 
-estilizando o box, bnt, detalhe, saldo e botao colocando junto no arquivo index.jsx do UI 
+### Estilizando o box, bnt, detalhe, saldo e botao colocando junto no arquivo index.jsx do UI 
 monta todas as estiliação
 
 ```
@@ -430,17 +430,17 @@ font-weight: 700;
 font-size: 32px;
 `
 ```
-importa a styled components
+### Importa a styled components
 
 ```
 import {Icone, Box, Detalhe, Saldo, Botao} from "../../Components/UI/index"
 ```
 
-Troca os ClassName
+### Troca os ClassName
 
 ## Media Query
 
-Retira o media query do css
+### Retira o media query do css
 
 ```
 @media (max-width: 800px) {
@@ -454,7 +454,7 @@ Retira o media query do css
 }
 
 ```
-Retire o que é do .box junto com a estrutura do media query e coloca no Box que foi montado no index.jsx da pasta UI
+### Retire o que é do .box junto com a estrutura do media query e coloca no Box que foi montado no index.jsx da pasta UI
 
 ```
 export const Box = styled.div`
@@ -474,7 +474,7 @@ width: 48%;
 `
 ```
 
-Retire o que é do .conteudo junto com a estrutura do media query e coloca no Conteudo que foi montado no index.jsx da pasta Container
+### Retire o que é do .conteudo junto com a estrutura do media query e coloca no Conteudo que foi montado no index.jsx da pasta Container
 
 ```
 const Conteudo = styled.section`
@@ -490,9 +490,9 @@ const Conteudo = styled.section`
 
 ## Extrato
 
-Cria uma nova pasta com nome de Extrato na pasta Components e dentro dela um arquivo index.jsx
+### Cria uma nova pasta com nome de Extrato na pasta Components e dentro dela um arquivo index.jsx
 
-monta extrutura básica do index
+### Montar extrutura básica do index
 
 ```
 import React from 'react';
@@ -507,13 +507,13 @@ const Extrato = ()=>{
 export default Extrato
 ```
 
-importar a o conteudo da pasta do info.js que contem os dados para o estrato
+### Importar a o conteudo da pasta do info.js que contem os dados para o estrato
 
 ```
 import {extratoLista} from '../../info'
 ```
 
-fazer map para verificar o conteúdo do objeto
+### Fazer map para verificar o conteúdo do objeto
 
 ```
 const Extrato = () => {
@@ -532,12 +532,12 @@ const Extrato = () => {
 };
 ```
 
-incluindo um botao
-Acrescentar o Botão no import do Box
+### Incluindo um botao
+### Acrescentar o Botão no import do Box
 ```
 import { Box, Botao } from "../UI";
 ```
-acrescenta op botão no final do Box
+### Acrescenta op botão no final do Box
 
 ```
       ...
@@ -545,11 +545,11 @@ acrescenta op botão no final do Box
     </Box>
 ```
 
-Incluindo itens
+### Incluindo itens
 
-cria uma nova pasta Itens e index.jsx nele
+### Cria uma nova pasta Itens e index.jsx nele
 
-montar a pagina de Itens
+### Montar a pagina de Itens
 ```
 import React from 'react';
 import styled from 'styled-components';
@@ -572,7 +572,7 @@ export default()=>{
 
 ## Implementação do tema escuro
 
-acrescentar as novas variaveis de cores no variaveis.js
+### Acrescentar as novas variaveis de cores no variaveis.js
 
 ´´´
 export const conteudoClaro = "white";
@@ -582,9 +582,9 @@ export const conteudoEscuro = "#5c5b5e";
 export const textoFundoEscyro = "fafafa";
 ´´´
 
-criar o arquivo temas.js na pasta UI
+### Criar o arquivo temas.js na pasta UI
 
-importa as cores nesse arquivo
+### Importa as cores nesse arquivo
 
 ```
 import {
@@ -597,7 +597,7 @@ import {
 } from "./variaveis";
 ```
 
-Crias os dois objetos
+### Crias os dois objetos
 
 ```
 export const temaClaro = {
@@ -613,14 +613,14 @@ export const temaEscuro = {
 };
 ```
 
-No arquivo App.js importar o ThemeProvider do styled-components e os temas
+### No arquivo App.js importar o ThemeProvider do styled-components e os temas
 
 ```
 import {ThemeProvider} from 'styled-components'
 import {temaClaro, temaEscuro} from './Components/UI/temas'
 ```
 
-retira a marcação <> </> e acrescenta ThemeProvider
+### retira a marcação <> </> e acrescenta ThemeProvider
 
 ```
     <ThemeProvider theme={temaEscuro}>
@@ -629,44 +629,44 @@ retira a marcação <> </> e acrescenta ThemeProvider
       <Container />
     </ThemeProvider>
 ```
-substituir os cores fixas pela variavel
+### substituir os cores fixas pela variavel
 
 index do container
 
 ```
   background-color: #f1f1f1;
 ```
-por
+### por
 
 ```
   background-color: ${({theme}) => theme.body};
 ```
 
-index do UI
+### No index do UI trocar
 
 ```
 background-color: white;
 ```
-por
+### por
 ```
 background-color: ${({theme}) => theme.inside};
 ```
 
-globalStyle.js
+### No globalStyle.js trocar
 
 ```
 color: grey;
 ```
-por
+### por
 ```
 color: ${({theme}) => theme.text};
 ```
 
-Acrescentar botão para mudança do tema
+## Acrescentar botão para mudança do tema
 
-criar arquivo no Components com nome SwitcherTema/index.jsx
+### criar arquivo no Components com nome SwitcherTema/index.jsx
 
-no arquivo criado importar os objetos
+### no arquivo criado importar os objetos
 
 ```
 import React from 'react';
@@ -675,20 +675,20 @@ import ThemeOff from '../../assets/images/themeOff.svg'
 import { Icone } from '../UI';
 ```
 
-criar os icones
+### criar os icones
 ```
 const claro = <Icone src={ThemeOn} alt= "Tema Claro"/>
 const escuro = <Icone src={ThemeOff} alt= "Tema Escuro"/>
 ```
 
-criar a função de mudança de tema
+### criar a função de mudança de tema
 ```
 export default (({tema}) => (tema ? escuro : claro));
 ```
 
-implementar a função de troca de tema no App.js
+### Implementar a função de troca de tema no App.js
 
-importar os objetos
+### Importar os objetos
 
 ```
 import React, { useState } from "react";
@@ -696,7 +696,7 @@ import React, { useState } from "react";
 import { BtnTema } from "./Components/UI"; 
 import SwitcherTema from "./Components/SwitcherTema";
 ```
-criar a função de mudança do tema no começo da function App() 
+### Criar a função de mudança do tema no começo da function App() 
 
 ```
   const [tema, setTema] = useState(true);
@@ -706,7 +706,7 @@ criar a função de mudança do tema no começo da function App()
   };
 ```
 
-mudança do tema
+## Mudança do tema
 
 ```
     <ThemeProvider theme={tema ? temaClaro : temaEscuro}>
@@ -716,48 +716,48 @@ mudança do tema
       </BtnTema>
 ```
 
-mudando a cor do icone
+## mudando a cor do icone
 
-no arquivo tema.js acrescentar o filter tanto no tema claro como no escuro
+### No arquivo tema.js acrescentar o filter tanto no tema claro como no escuro
 
-tema claro
+### Tema claro
 ```
 filter: "",
 ```
 
-tema escuro
+### Tema escuro
 
 ```
 filter: "invert(100%)",
 ```
 
-No index.js da pasta UI acrescentar a mudança do icone depois da função Icone
+### No index.js da pasta UI acrescentar a mudança do icone depois da função Icone
 
 ```
 export const IconeTema = styled(Icone)`
 filter: ${({theme}) => theme.filter};
 `
 ```
-implementar a troca
+## Implementar a troca
 
-conta/index.jsx
+### Conta/index.jsx
 
-importar IconeTema
+### Importar IconeTema
 ```
 import {Icone, Box, Detalhe, Saldo, Botao, IconeTema} from "../../Components/UI/index"
 ```
-substituir
+### substituir
 ```
 <Icone src={dinheiro} alt="Ícone Saldo" />
 ```
-por
+### por
 ```
 <IconeTema src={dinheiro} alt="Ícone Saldo" />
 ```
 
-e no imageFilter da pasta UI
+### No imageFilter da pasta UI
 
-trocar 
+### de 
 ```
 import { Icone } from "../Components/UI";
 
@@ -769,7 +769,7 @@ import { Icone } from "../Components/UI";
     default: <Icone src={outros} alt="Outros" />,
   };
 ```
-por 
+### para
 
 ```
 import { IconeTema } from "../Components/UI";
